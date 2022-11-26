@@ -5,6 +5,7 @@ import time
 screen = Screen()
 screen.bgcolor('black')
 screen.setup(width=1200, height=800)
+screen.title(titlestring="Joc in teste")
 screen.listen()
 screen.tracer(0)
 t2 = Turtle()
@@ -24,12 +25,36 @@ t2.forward(600)
 t1 = Turtle('circle')
 t1.color('blue')
 # t1.penup()
-unghi = random.randint(40, 359)
-while unghi == 90 or unghi == 180:
-    unghi = random.randint(10, 359)
-print(unghi)
-t1.setheading(unghi)
-MOVE_DISTANCE = 15
+lista_obiecte = []
+obiect_miscare = {}
+lista_culori = ['red', 'blue', 'yellow', 'white', 'green', 'purple', 'pink']
+lista_unghiuri = []
+alegere_numar = int(screen.textinput(title="Alegere numar obiecte", prompt="Alege numar obiecte"))
+unghi = 0
+for obiect in range(alegere_numar):
+    obiectul = Turtle('circle')
+    obiectul.color(random.choice(lista_culori))
+    obiectul.setheading(unghi)
+    obiectul.penup()
+    obiect_miscare["obiectul"] = obiectul
+    lista_obiecte.append(obiect_miscare)
+
+for numar in range(alegere_numar):
+    numar1 = random.randint(1, 350)
+    while numar1 == 90 or numar1 == 180:
+        numar1 = random.randint(1, 350)
+    lista_unghiuri.append(numar1)
+print(lista_unghiuri)
+provizoriu = 0
+for atribuire in lista_unghiuri:
+    lista_obiecte[provizoriu]['unghi'] = lista_unghiuri[provizoriu]
+    provizoriu = provizoriu + 1
+
+
+
+
+print(lista_obiecte)
+MOVE_DISTANCE = 1
 # UP = 90
 # DOWN = 270
 # LEFT = 180
@@ -39,17 +64,27 @@ MOVE_DISTANCE = 15
 
 joc = True
 while joc:
-    time.sleep(0.1)
+    time.sleep(0.001)
     screen.update()
-    t1.penup()
-    t1.forward(MOVE_DISTANCE)
-    # pt ycor()
-    if t1.xcor() >= 560 or t1.xcor() <= -560:
-        unghi = 180 - unghi
-        t1.setheading(unghi)
-    elif t1.ycor() >= 285 or t1.ycor() <= -285:
-        unghi = 360 - unghi
-        t1.setheading(unghi)
+    for obiect_miscare in lista_obiecte:
+        obiect_miscare["obiectul"].forward(int(MOVE_DISTANCE))
+        # print(f"xcor(): {int(obiect_miscare['obiectul'].xcor())}")
+        # print(f"ycor(): {int(obiect_miscare.ycor())}")
+        if int(obiect_miscare['obiectul'].xcor()) >= 560 or int(obiect_miscare['obiectul'].xcor()) <= -560:
+            screen.tracer()
+            obiect_miscare["unghi"] = 180 - obiect_miscare["unghi"]
+            obiect_miscare['obiectul'].setheading(obiect_miscare["unghi"])
+            obiect_miscare['obiectul'].forward(MOVE_DISTANCE)
+            time.sleep(0.001)
+            screen.update()
+
+        elif int(obiect_miscare['obiectul'].ycor()) >= 285 or int(obiect_miscare['obiectul'].ycor()) <= -285:
+            screen.tracer()
+            obiect_miscare["unghi"] = 360 - obiect_miscare["unghi"]
+            obiect_miscare['obiectul'].setheading(obiect_miscare["unghi"])
+            obiect_miscare['obiectul'].forward(MOVE_DISTANCE)
+            time.sleep(0.001)
+            screen.update()
 
 
 
