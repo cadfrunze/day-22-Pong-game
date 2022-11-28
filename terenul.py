@@ -3,6 +3,7 @@ from turtle import Turtle
 
 class Terenul(Turtle):
     """Creearea, trasarea marcajelor + fileu"""
+
     def __init__(self):
         super().__init__()
         self.t2 = Turtle()
@@ -13,6 +14,7 @@ class Terenul(Turtle):
         self.t2.pendown()
         self.t2.pensize(5)
         self.marcajele()
+
     def marcajele(self):
         for _ in range(4):
             self.t2.forward(1125)
