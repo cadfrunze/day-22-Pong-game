@@ -1,7 +1,3 @@
-import random
-lista = []
-for numar in range(3):
-    numar1 = random.randint(1, 10)
-    lista.append(numar1)
+lista = [1, 2, 3, 4, 5]
 
-print(lista)
+print(lista[1::])
