@@ -1,10 +1,11 @@
 from turtle import Turtle
 
-STARTING_POS_PAL1 = ((-400, 20), (-400, 0), (-400, -20), (-400, -40))
-STARTING_POS_PAL2 = ((400, 20), (400, 0), (400, -20), (400, -40))
+STARTING_POS_PAL1 = ((-500, 20), (-500, 0), (-500, -20), (-500, -40))
+STARTING_POS_PAL2 = ((500, 20), (500, 0), (500, -20), (500, -40))
 
 
 class Paleta(Turtle):
+    """Creearea, pozitionarea, miscarea paletelor"""
     def __init__(self):
         super().__init__()
         self.segmente_stanga = []
