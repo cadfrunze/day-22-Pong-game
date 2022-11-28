@@ -14,7 +14,11 @@ paleta = Paleta()
 
 
 def move_nord_pal_dr():
-    paleta.move_nord(lista_segmente=paleta.segmente_dreapta)
+    if int(paleta.segmente_dreapta[0].ycor()) == 280:
+        screen.onkey(key="Down", fun=move_sud_pal_dr)
+
+    else:
+        paleta.move_nord(lista_segmente=paleta.segmente_dreapta)
 
 
 def move_nord_pal_st():
@@ -22,7 +26,11 @@ def move_nord_pal_st():
 
 
 def move_sud_pal_dr():
-    paleta.move_sud(lista_segmente=paleta.segmente_dreapta)
+    if int(paleta.segmente_dreapta[-1].ycor()) == -280:
+        screen.onkey(key="Up", fun=move_nord_pal_dr)
+
+    else:
+        paleta.move_sud(lista_segmente=paleta.segmente_dreapta)
 
 
 def move_sud_pal_st():
