@@ -1,7 +1,6 @@
-from turtle import Screen, Turtle
+from turtle import Screen
 from paletele import Paleta
 from terenul import Terenul
-import random
 import time
 
 screen = Screen()
@@ -20,8 +19,3 @@ screen.update()
 
 
 screen.exitonclick()
-
-
-
-
-
