@@ -2,7 +2,7 @@ from turtle import Turtle
 
 STARTING_POS_PAL1 = ((500, 20), (500, 0), (500, -20), (500, -40))
 STARTING_POS_PAL2 = ((-500, 20), (-500, 0), (-500, -20), (-500, -40))
-MOVE_DISTANCE = 40
+MOVE_DISTANCE = 20
 
 
 class Paleta(Turtle):
@@ -54,7 +54,7 @@ class Paleta(Turtle):
                 element.goto(x=lista_segmente[obiectul - 1].xcor(), y=lista_segmente[obiectul - 1].ycor())
                 obiectul = obiectul - 1
 
-        head.forward(20)
+        head.forward(MOVE_DISTANCE)
 
     def move_sud(self, lista_segmente):
         head = lista_segmente[-1]
@@ -67,4 +67,5 @@ class Paleta(Turtle):
                 element.setheading(270)
                 element.goto(x=lista_segmente[obiectul].xcor(), y=lista_segmente[obiectul].ycor())
                 obiectul = obiectul + 1
-        head.forward(20)
+        head.forward(MOVE_DISTANCE)
+
