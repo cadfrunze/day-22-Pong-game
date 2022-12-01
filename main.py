@@ -1,5 +1,6 @@
 from turtle import Screen, Turtle
 from terenul import Terenul
+from paletele import Paleta
 
 from bila import Bila
 import time
@@ -11,62 +12,53 @@ screen.setup(width=1400, height=800)
 screen.title(titlestring="Jocul")
 screen.tracer(0)
 screen.listen()
+CULOARE_PAL_DR = "yellow"
+POS_PAL_DR = (500, 0)
+CULOARE_PAL_ST = "green"
+POS_PAL_ST = (-500, 0)
 terenul = Terenul()
+paleta_dr = Paleta(position=POS_PAL_DR, culoarea=CULOARE_PAL_DR)
+paleta_st = Paleta(position=POS_PAL_ST, culoarea=CULOARE_PAL_ST)
 
-# Create paleta dreapta
-paleta_dr = Turtle('square')
-paleta_dr.penup()
-paleta_dr.color('yellow')
-paleta_dr.shapesize(stretch_wid=5, stretch_len=1)
-paleta_dr.goto(x=500, y=0)
-
-# Create paleta stanga
-paleta_st = Turtle('square')
-paleta_st.penup()
-paleta_st.color('green')
-paleta_st.shapesize(stretch_wid=5, stretch_len=1)
-paleta_st.goto(x=-500, y=0)
-
-YPOS = 20
-
-
-def move_pal_dr_nord():
-    print(paleta_dr.ycor())
+# Creearea functilor pt controale
+def move_pal_nord_dr():
     if paleta_dr.ycor() == 240:
-        screen.onkey(key="Down", fun=move_pal_dr_sud)
+        screen.onkey(key="Down", fun=move_pal_sud_dr)
     else:
-        paleta_dr.goto(x=500, y=paleta_dr.ycor() + YPOS)
+        paleta_dr.move_nord()
 
 
-def move_pal_dr_sud():
+def move_pal_sud_dr():
     if paleta_dr.ycor() == -240:
-        screen.onkey(key="Up", fun=move_pal_dr_nord)
+        screen.onkey(key="Up", fun=move_pal_nord_dr)
     else:
-        paleta_dr.goto(x=500, y=paleta_dr.ycor() - YPOS)
+        paleta_dr.move_sud()
 
 
-def move_pal_st_nord():
+def move_pal_nord_st():
     if paleta_st.ycor() == 240:
-        screen.onkey(key="s", fun=move_pal_st_sud)
-        screen.onkey(key="S", fun=move_pal_st_sud)
+        screen.onkey(key="s", fun=move_pal_sud_st)
+        screen.onkey(key="S", fun=move_pal_sud_st)
     else:
-        paleta_st.goto(x=-500, y=paleta_st.ycor() + YPOS)
+        paleta_st.move_nord()
 
 
-def move_pal_st_sud():
+def move_pal_sud_st():
     if paleta_st.ycor() == -240:
-        screen.onkey(key="W", fun=move_pal_st_nord)
-        screen.onkey(key="s", fun=move_pal_st_sud)
+        screen.onkey(key="w", fun=move_pal_nord_st)
+        screen.onkey(key="W", fun=move_pal_nord_st)
     else:
-        paleta_st.goto(x=-500, y=paleta_st.ycor() - YPOS)
+        paleta_st.move_sud()
+
+# Creearea butoanelor de control
 
 
-screen.onkey(key="Up", fun=move_pal_dr_nord)
-screen.onkey(key="Down", fun=move_pal_dr_sud)
-screen.onkey(key="w", fun=move_pal_st_nord)
-screen.onkey(key="W", fun=move_pal_st_nord)
-screen.onkey(key="s", fun=move_pal_st_sud)
-screen.onkey(key="S", fun=move_pal_st_sud)
+screen.onkey(key="Up", fun=move_pal_nord_dr)
+screen.onkey(key="Down", fun=move_pal_sud_dr)
+screen.onkey(key="w", fun=move_pal_nord_st)
+screen.onkey(key="W", fun=move_pal_nord_st)
+screen.onkey(key="s", fun=move_pal_sud_st)
+screen.onkey(key="S", fun=move_pal_sud_st)
 # # Jocul
 joc = True
 
