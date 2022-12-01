@@ -14,8 +14,8 @@ class Terenul(Turtle):
         self.t2.pendown()
         self.t2.pensize(5)
         self.marcajele()
-        self.peretele_nord = 290
-        self.peretele_sud = -290
+        self.peretele_nord = 291
+        self.peretele_sud = -291
         self.peretele_dr, self.peretele_st = 560, -560
 
 

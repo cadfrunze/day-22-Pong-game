@@ -15,16 +15,15 @@ class Bila(Turtle):
         self.speed('slow')
         self.setheading(UNGHI)
         self.joc_bila = True
-        # self.miscare_bila()
         self.verificare()
 
     def miscare_bila(self):
         self.forward(MOVE_DISTANCE)
 
     def verificare(self):
-        if int(self.ycor()) >= 290:
+        if int(self.ycor()) == int(290):
             self.setheading(360 - UNGHI)
-        elif int(self.ycor()) <= -290:
+        elif int(self.ycor()) == int(-290):
             self.setheading(360 + UNGHI)
         self.miscare_bila()
 
