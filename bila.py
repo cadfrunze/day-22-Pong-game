@@ -2,7 +2,7 @@ from turtle import Turtle
 from terenul import Terenul
 import random
 
-MOVE_DISTANCE = 1
+MOVE_DISTANCE = 2
 UNGHI = random.randint(1, 359)
 
 
@@ -12,20 +12,14 @@ class Bila(Turtle):
         self.shape('circle')
         self.penup()
         self.color('white')
-        self.speed('slow')
         self.setheading(UNGHI)
-        self.joc_bila = True
-        self.verificare()
 
     def miscare_bila(self):
-        self.forward(MOVE_DISTANCE)
-
-    def verificare(self):
-        if int(self.ycor()) == int(290):
+        if int(self.ycor()) == 290 or int(self.ycor()) == 291:
             self.setheading(360 - UNGHI)
-        elif int(self.ycor()) == int(-290):
+        elif int(self.ycor()) == -290 or int(self.ycor()) == -291:
             self.setheading(360 + UNGHI)
-        self.miscare_bila()
+        self.forward(MOVE_DISTANCE)
 
 
 

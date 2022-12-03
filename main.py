@@ -16,6 +16,7 @@ POS_PAL_DR = (500, 0)
 CULOARE_PAL_ST = "green"
 POS_PAL_ST = (-500, 0)
 terenul = Terenul()
+bila = Bila()
 paleta_dr = Paleta(position=POS_PAL_DR, culoarea=CULOARE_PAL_DR)
 paleta_st = Paleta(position=POS_PAL_ST, culoarea=CULOARE_PAL_ST)
 
@@ -64,7 +65,8 @@ screen.onkey(key="S", fun=move_pal_sud_st)
 joc = True
 
 while joc:
-    screen.update()
     time.sleep(0.003)
+    screen.update()
+    bila.miscare_bila()
 
 screen.exitonclick()
