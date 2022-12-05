@@ -18,8 +18,6 @@ class Terenul(Turtle):
         self.peretele_sud = -291
         self.peretele_dr, self.peretele_st = 560, -560
 
-
-
     def marcajele(self):
         for _ in range(4):
             self.t2.forward(1125)

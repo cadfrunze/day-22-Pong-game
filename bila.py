@@ -3,7 +3,7 @@ from terenul import Terenul
 import random
 
 MOVE_DISTANCE = 2
-UNGHI = random.randint(1, 359)
+UNGHI = random.randint(-10, 10)
 
 
 class Bila(Turtle):
@@ -12,17 +12,12 @@ class Bila(Turtle):
         self.shape('circle')
         self.penup()
         self.color('white')
-        self.setheading(UNGHI)
+        self.x_cor = self.xcor()
+        self.y_cor = self.ycor()
 
     def miscare_bila(self):
-        if int(self.ycor()) == 290 or int(self.ycor()) == 291:
-            self.setheading(360 - UNGHI)
-        elif int(self.ycor()) == -290 or int(self.ycor()) == -291:
-            self.setheading(360 + UNGHI)
-        self.forward(MOVE_DISTANCE)
-
-
-
-
-
-
+        if int(self.ycor()) > 290:
+            pass
+        elif int(self.ycor()) < -290:
+            pass
+        self.goto(x=self.xcor() + UNGHI + 2, y=self.ycor() + UNGHI + 2)
