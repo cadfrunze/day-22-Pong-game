@@ -2,7 +2,7 @@ from turtle import Turtle
 from terenul import Terenul
 import random
 
-lista = [-10, 10]
+lista = [-5, 5]
 UNGHI = random.choice(lista)
 
 
@@ -22,3 +22,7 @@ class Bila(Turtle):
 
     def sari_inapoi(self):
         self.y_move = self.y_move * -1
+
+    def sari_inapoi_paleta(self):
+        self.x_move = self.x_move * -1
+

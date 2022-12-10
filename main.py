@@ -70,5 +70,11 @@ while joc:
     bila.miscare_bila()
     if bila.ycor() > 280 or bila.ycor() < -280:
         bila.sari_inapoi()
-
+    # Detect coliziunea cu paleta
+    if bila.distance(paleta_dr) < 80 and bila.xcor() == 480:
+        bila.sari_inapoi_paleta()
+    elif bila.distance(paleta_st) < 80 and bila.xcor() == -480:
+        bila.sari_inapoi_paleta()
+    if bila.xcor() >= 530 or bila.xcor() <= -530:
+        joc = False
 screen.exitonclick()
