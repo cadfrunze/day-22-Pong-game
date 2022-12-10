@@ -2,7 +2,6 @@ from turtle import Screen, Turtle
 from terenul import Terenul
 from paletele import Paleta
 from bila import Bila
-from coordonatele import Coordonate
 import time
 
 # Settings
@@ -18,7 +17,6 @@ CULOARE_PAL_ST = "green"
 POS_PAL_ST = (-500, 0)
 terenul = Terenul()
 bila = Bila()
-coordonat = Coordonate()
 paleta_dr = Paleta(position=POS_PAL_DR, culoarea=CULOARE_PAL_DR)
 paleta_st = Paleta(position=POS_PAL_ST, culoarea=CULOARE_PAL_ST)
 
@@ -63,9 +61,9 @@ screen.onkey(key="w", fun=move_pal_nord_st)
 screen.onkey(key="W", fun=move_pal_nord_st)
 screen.onkey(key="s", fun=move_pal_sud_st)
 screen.onkey(key="S", fun=move_pal_sud_st)
-# # Jocul
+# # Joculbila.afisare_coordonate()
 joc = True
-coordonat.afisare_coordonate()
+
 while joc:
     time.sleep(0.03)
     screen.update()

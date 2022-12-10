@@ -2,7 +2,7 @@ from turtle import Turtle
 from terenul import Terenul
 import random
 
-MOVE_DISTANCE = 2
+MOVE_DISTANCE = 4
 UNGHI = random.randint(-10, 10)
 
 

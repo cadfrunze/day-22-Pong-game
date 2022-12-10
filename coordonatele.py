@@ -1,16 +1,12 @@
 from turtle import Turtle
-from bila import Bila
 
 
 class Coordonate(Turtle):
     def __int__(self):
         super().__init__()
-        # self.penup()
+        self.penup()
+        self.goto(x=0, y=0)
         self.color('white')
-        # self.hideturtle()
-        # self.x_cor = Bila.xcor
-        # self.y_cor = Bila.ycor
+        self.hideturtle()
 
-    def afisare_coordonate(self):
-        self.goto(x=-200, y=200)
-        self.write(arg=f"blaththghghfg", move=False, align='center')
+
