@@ -68,5 +68,7 @@ while joc:
     time.sleep(0.03)
     screen.update()
     bila.miscare_bila()
+    if bila.ycor() > 280 or bila.ycor() < -280:
+        bila.sari_inapoi()
 
 screen.exitonclick()

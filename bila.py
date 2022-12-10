@@ -2,8 +2,8 @@ from turtle import Turtle
 from terenul import Terenul
 import random
 
-MOVE_DISTANCE = 4
-UNGHI = random.randint(-10, 10)
+lista = [-10, 10]
+UNGHI = random.choice(lista)
 
 
 class Bila(Turtle):
@@ -12,12 +12,13 @@ class Bila(Turtle):
         self.shape('circle')
         self.penup()
         self.color('white')
-        self.x_cor = self.xcor()
-        self.y_cor = self.ycor()
+        self.x_move = UNGHI
+        self.y_move = UNGHI
 
     def miscare_bila(self):
-        if int(self.ycor()) > 290:
-            pass
-        elif int(self.ycor()) < -290:
-            pass
-        self.goto(x=self.xcor() + UNGHI + 2, y=self.ycor() + UNGHI + 2)
+        new_x = self.xcor() + self.x_move
+        new_y = self.ycor() + self.y_move
+        self.goto(x=new_x, y=new_y)
+
+    def sari_inapoi(self):
+        self.y_move = self.y_move * -1
