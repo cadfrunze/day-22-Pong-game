@@ -11,7 +11,6 @@ screen.bgcolor('black')
 screen.setup(width=1400, height=800)
 screen.title(titlestring="Jocul")
 scorul = Scorul()
-scorul.innregistrare_useri()
 screen.tracer(0)
 screen.listen()
 CULOARE_PAL_DR = "yellow"
@@ -66,7 +65,7 @@ screen.onkey(key="s", fun=move_pal_sud_st)
 screen.onkey(key="S", fun=move_pal_sud_st)
 # # Joculbila.afisare_coordonate()
 joc = True
-scorul.afisare_scor()
+# scorul.afisare_scor()
 while joc:
     time.sleep(0.03)
     screen.update()
@@ -79,6 +78,17 @@ while joc:
         bila.sari_inapoi_paleta()
     elif bila.distance(paleta_st) < 80 and bila.xcor() == -480:
         bila.sari_inapoi_paleta()
-    if bila.xcor() >= 530 or bila.xcor() <= -530:
+    # Detect cand bila trece de palete
+    if bila.xcor() >= 530:
+        screen.tracer(0)
+        scorul.scor_st = scorul.scor_st + 1
+        scorul.update_score(scor_dr=scorul.scor_dr, scor_st=scorul.scor_st)
+        screen.update()
+        joc = False
+    elif bila.xcor() <= -530:
+        screen.tracer(0)
+        scorul.scor_dr = scorul.scor_dr + 1
+        scorul.update_score(scor_dr=scorul.scor_dr, scor_st=scorul.scor_st)
+        screen.update()
         joc = False
 screen.exitonclick()
