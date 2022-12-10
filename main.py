@@ -2,6 +2,7 @@ from turtle import Screen, Turtle
 from terenul import Terenul
 from paletele import Paleta
 from bila import Bila
+from score import Scorul
 import time
 
 # Settings
@@ -9,6 +10,8 @@ screen = Screen()
 screen.bgcolor('black')
 screen.setup(width=1400, height=800)
 screen.title(titlestring="Jocul")
+scorul = Scorul()
+scorul.innregistrare_useri()
 screen.tracer(0)
 screen.listen()
 CULOARE_PAL_DR = "yellow"
@@ -63,11 +66,12 @@ screen.onkey(key="s", fun=move_pal_sud_st)
 screen.onkey(key="S", fun=move_pal_sud_st)
 # # Joculbila.afisare_coordonate()
 joc = True
-
+scorul.afisare_scor()
 while joc:
     time.sleep(0.03)
     screen.update()
     bila.miscare_bila()
+    # Detectarea cu peretii nord si sud
     if bila.ycor() > 280 or bila.ycor() < -280:
         bila.sari_inapoi()
     # Detect coliziunea cu paleta

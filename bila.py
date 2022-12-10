@@ -7,6 +7,7 @@ UNGHI = random.choice(lista)
 
 
 class Bila(Turtle):
+    """Bila"""
     def __init__(self):
         super().__init__()
         self.shape('circle')
