@@ -1,1 +1,1 @@
-# day-22-Pong-game
+# The pong game
