@@ -65,18 +65,19 @@ screen.onkey(key="s", fun=move_pal_sud_st)
 screen.onkey(key="S", fun=move_pal_sud_st)
 # # Joculbila.afisare_coordonate()
 joc = True
+time_sleep = 0.03
 # scorul.afisare_scor()
 while joc:
-    time.sleep(0.03)
+    time.sleep(time_sleep)
     screen.update()
     bila.miscare_bila()
     # Detectarea cu peretii nord si sud
     if bila.ycor() > 280 or bila.ycor() < -280:
         bila.sari_inapoi()
     # Detect coliziunea cu paleta
-    if bila.distance(paleta_dr) < 80 and bila.xcor() == 480:
+    if bila.distance(paleta_dr) < 90 and bila.xcor() == 480:
         bila.sari_inapoi_paleta()
-    elif bila.distance(paleta_st) < 80 and bila.xcor() == -480:
+    if bila.distance(paleta_st) < 90 and bila.xcor() == -480:
         bila.sari_inapoi_paleta()
     # Detect cand bila trece de palete
     if bila.xcor() >= 530:
@@ -85,10 +86,12 @@ while joc:
         scorul.update_score(scor_dr=scorul.scor_dr, scor_st=scorul.scor_st)
         bila.reseteaza()
         screen.update()
-    elif bila.xcor() <= -530:
+    if bila.xcor() <= -530:
         screen.tracer(0)
         scorul.scor_dr = scorul.scor_dr + 1
         scorul.update_score(scor_dr=scorul.scor_dr, scor_st=scorul.scor_st)
+        if time_sleep > 0.01:
+            time_sleep = time_sleep - 0.01
         bila.reseteaza()
         screen.update()
 screen.exitonclick()

@@ -2,19 +2,20 @@ from turtle import Turtle
 from terenul import Terenul
 import random
 
-lista = [-5, 5]
-UNGHI = random.choice(lista)
-
 
 class Bila(Turtle):
     """Bila"""
+
     def __init__(self):
         super().__init__()
         self.shape('circle')
         self.penup()
         self.color('white')
-        self.x_move = UNGHI
-        self.y_move = UNGHI
+        lista = [-5, 5]
+        self.alege = random.choice(lista)
+        self.viteza = self.alege
+        self.x_move = self.viteza
+        self.y_move = self.viteza
 
     def miscare_bila(self):
         new_x = self.xcor() + self.x_move
@@ -32,4 +33,3 @@ class Bila(Turtle):
         self.home()
         self.sari_inapoi_paleta()
         self.miscare_bila()
-
