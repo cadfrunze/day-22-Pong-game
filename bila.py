@@ -30,5 +30,6 @@ class Bila(Turtle):
     def reseteaza(self):
         self.clear()
         self.home()
+        self.sari_inapoi_paleta()
         self.miscare_bila()
 

@@ -1,4 +1,4 @@
-from turtle import Screen, Turtle
+from turtle import Screen
 from terenul import Terenul
 from paletele import Paleta
 from bila import Bila
