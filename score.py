@@ -11,7 +11,8 @@ class Scorul(Turtle):
         self.user_dr = ""
         self.user_st = ""
         self.innregistrare_useri()
-        self.goto(x=-len(self.user_st) * 20, y=310)
+        self.grosimea = (10 * len(self.user_st)) + (8 * 10)
+        self.goto(x=(-1 * self.grosimea), y=310)
         self.scor_dr = 0
         self.scor_st = 0
         self.afisare_scor()
