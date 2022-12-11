@@ -65,10 +65,10 @@ screen.onkey(key="s", fun=move_pal_sud_st)
 screen.onkey(key="S", fun=move_pal_sud_st)
 # # Joculbila.afisare_coordonate()
 joc = True
-time_sleep = 0.03
+
 # scorul.afisare_scor()
 while joc:
-    time.sleep(time_sleep)
+    time.sleep(bila.move_speed)
     screen.update()
     bila.miscare_bila()
     # Detectarea cu peretii nord si sud
@@ -90,8 +90,6 @@ while joc:
         screen.tracer(0)
         scorul.scor_dr = scorul.scor_dr + 1
         scorul.update_score(scor_dr=scorul.scor_dr, scor_st=scorul.scor_st)
-        if time_sleep > 0.01:
-            time_sleep = time_sleep - 0.01
         bila.reseteaza()
         screen.update()
 screen.exitonclick()
