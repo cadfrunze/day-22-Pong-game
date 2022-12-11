@@ -83,12 +83,12 @@ while joc:
         screen.tracer(0)
         scorul.scor_st = scorul.scor_st + 1
         scorul.update_score(scor_dr=scorul.scor_dr, scor_st=scorul.scor_st)
+        bila.reseteaza()
         screen.update()
-        joc = False
     elif bila.xcor() <= -530:
         screen.tracer(0)
         scorul.scor_dr = scorul.scor_dr + 1
         scorul.update_score(scor_dr=scorul.scor_dr, scor_st=scorul.scor_st)
+        bila.reseteaza()
         screen.update()
-        joc = False
 screen.exitonclick()

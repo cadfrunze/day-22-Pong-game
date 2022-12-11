@@ -27,3 +27,8 @@ class Bila(Turtle):
     def sari_inapoi_paleta(self):
         self.x_move = self.x_move * -1
 
+    def reseteaza(self):
+        self.clear()
+        self.home()
+        self.miscare_bila()
+
