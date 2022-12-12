@@ -1,5 +1,4 @@
 from turtle import Turtle
-from terenul import Terenul
 import random
 
 
